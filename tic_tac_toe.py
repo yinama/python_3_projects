@@ -4,6 +4,7 @@ def game_start():
     print('                  Tic Tac Toe')
     print('                  By Ying Ma')
 
+#displays the tic tac toe board
 def display_board(board):
     print ('                         '+board[7]+'|'+board[8]+'|'+board[9])
     print ('                         '+board[4]+'|'+board[5]+'|'+board[6])
@@ -15,6 +16,7 @@ def clear_board():
 def clear_screen():
     print('\n'*100)
     
+#asks the player to choose side, return "X" or "O"
 def choose_side():
     side = input('Player 1, would you like to play as "X" or as "O"?\n')
     i=0
@@ -26,9 +28,11 @@ def choose_side():
         side="O"
     return side
 
+#check if the position on the board is taken, takes "X" or "O" as argument
 def check_board_empty(marker):
     return board[marker]==' '
 
+#Asks the player to put down a mark
 def place_marker():
     global marker
     global side
@@ -66,6 +70,7 @@ def switch_side():
     else:
         side='O'
 
+#check and see if one player has won
 def win_check():
     return ((board[7] ==  board[8] ==  board[9]==side) or (board[4] ==  board[5] ==  board[6]==side) or (board[1] ==  board[2] ==  board[3]==side) or \
     (board[7] ==  board[4] ==  board[1]==side) or \
@@ -84,6 +89,7 @@ def game():
     display_board(board)
     counter =  0
 
+#maximum 9 steps for the game
     while counter<9 and not win_check():
 
         place_marker()
